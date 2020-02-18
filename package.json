@@ -1,0 +1,49 @@
+{
+  "name": "lance-pong",
+  "version": "4.0.0",
+  "engines": {
+    "node": ">=11.0.0"
+  },
+  "description": "An HTML5 multiplayer pong game based on Lance",
+  "main": "src/main.js",
+  "dependencies": {
+    "babel-loader": "^8.0.5",
+    "express": "^4.14.0",
+    "lance-gg": "^4.0.3",
+    "query-string": "^4.2.3",
+    "socket.io": "^2.1.1",
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.3.4",
+    "eslint": "^3.16.1",
+    "eslint-config-google": "^0.7.1",
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "babel-node": "babel-node",
+    "start": "node dist-server/main.js",
+    "start-debug": "node --inspect-brk dist-server/main.js",
+    "postinstall": "webpack && babel src --source-maps --out-dir dist-server",
+    "build": "webpack && babel src --source-maps --out-dir dist-server",
+    "stats": "webpack --env production --profile --json > stats.json",
+    "dev-server": "nodemon --watch src --exec npm run babel-node -- ./src/main.js",
+    "dev-client": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "game",
+    "lance",
+    "lance-gg",
+    "multiplayer",
+    "websockets"
+  ],
+  "author": "Jane Doe",
+  "license": "Apache-2.0"
+}
